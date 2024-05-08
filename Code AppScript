@@ -1,0 +1,16 @@
+function Simpan() {
+  var Sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var shtInput = Sheet.getSheetByName('Input');
+  var shtdb = Sheet.getSheetByName('Database');
+
+  var id = shtInput.getRange('C3').getValue();
+  var nama = shtInput.getRange('C4').getValue();
+  var tgl = shtInput.getRange('C5').getValue();
+  var alamat = shtInput.getRange('C6').getValue();
+  var sekolah = shtInput.getRange('C7').getValue();
+
+  var baris = shtdb.getRange('F1').getValue();
+  baris += 1;
+  var rangeisi = shtdb.getRange('A' + baris + ':E'+ baris);
+  rangeisi.setValues([[id,nama,tgl,alamat,sekolah]]);
+}
