@@ -13,4 +13,16 @@ function Simpan() {
   baris += 1;
   var rangeisi = shtdb.getRange('A' + baris + ':E'+ baris);
   rangeisi.setValues([[id,nama,tgl,alamat,sekolah]]);
+  bersih();
+}
+
+function bersih () {
+  var Sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var shtInput = Sheet.getSheetByName('Input');
+
+  shtInput.getRange('C3').clearContent();
+  shtInput.getRange('C4').clearContent();
+  shtInput.getRange('C5').clearContent();
+  shtInput.getRange('C6').clearContent();
+  shtInput.getRange('C7').clearContent();
 }
